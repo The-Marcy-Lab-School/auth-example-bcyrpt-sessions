@@ -162,17 +162,18 @@ class PostedImages {
   // to provide the controller with instances that
   // have access to the instance methods isValidPassword
   // and update.
-  constructor({url}) {
+  constructor({url,id}) {
     this.url = url;
+    this.id = id;
   }
 
-  static async create(url) {
+  static async create(url,id) {
     try {
       // const passwordHash = await authUtils.hashPassword(password);
 
-      const query = `INSERT INTO users (url)
+      const query = `INSERT INTO posted_images (img_URL,user_id)
         VALUES (?) RETURNING *`;
-      const { rows: [img] } = await knex.raw(query, [url]);
+      const { rows: [img] } = await knex.raw(query, [url,id]);
       return new PostedImages(img);
     } catch (err) {
       console.error(err);

@@ -2,13 +2,13 @@ const PostedImages = require("../../db/models/posted-images");
 
 const createImg = async (req, res) => {
     const {
-      //session,
+      session,
       db: { PostedImages },
-      body: { url },
+      body: { url, id },
     } = req;
   
-    const img = await PostedImages.create(username, password);
-    //session.userId = img.url;
+    const img = await PostedImages.create(url, id);
+    session.userId = user.id;
   
     res.send(img);
   };
