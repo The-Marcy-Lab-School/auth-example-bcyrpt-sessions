@@ -68,7 +68,9 @@ const setNav = (hasLoggedInUser) => {
   const loggedInNavHtml = `<ul>
     <li><a href="/">Home</a></li>
     <li><a href="./user.html">Profile</a></li>
-  </ul>`;
+  </ul>
+  <li><a href="./posted-image.html">Post</a></li>
+  </ul>`;//testing to see if page displays more than one nav linked when signed in
 
   const navHtml = hasLoggedInUser ? loggedInNavHtml : loggedOutNavHtml;
   document.querySelector('nav').innerHTML = navHtml;
