@@ -2,9 +2,9 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.up = (knex) => knex.schema.createTable('liked_images', (table) => {
+exports.up = (knex) => knex.schema.createTable('saved_images', (table) => {
     table.increments('id');
-    table.string('img_URL').notNullable();
+    table.string('img_url').notNullable();
     table.integer('user_id').notNullable();
     table.foreign('user_id').references('id').inTable('users');
   });
@@ -14,5 +14,5 @@ exports.up = (knex) => knex.schema.createTable('liked_images', (table) => {
      * @param { import("knex").Knex } knex
      * @returns { Promise<void> }
      */
-    exports.down = (knex) => knex.schema.dropTable('liked_images');
+    exports.down = (knex) => knex.schema.dropTable('saved_images');
     

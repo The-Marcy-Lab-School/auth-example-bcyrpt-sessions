@@ -14,7 +14,7 @@ const renderUsername = (username) => {
 
 const main = async () => {
   const user = await fetchLoggedInUser();
-  console.log(user);
+  //console.log(user);
   if (!user) return redirectToLogin();
 
   const logoutForm = document.querySelector('#logout-form');
@@ -40,6 +40,6 @@ const main = async () => {
   setNav(!!user);
   renderUsername(user.username);
 };
-console.log(user)
+
 main();
 

@@ -1,6 +1,6 @@
 const express = require('express');
 const userController = require('./controllers/user');
-const postedImages = require('./controllers/posted-images');
+const postedimages = require('./controllers/posted-images');
 const addModels = require('./middleware/add-models');
 const checkAuthentication = require('./middleware/check-authentication');
 
@@ -19,18 +19,13 @@ Router.get('/cookieCounter', (req, res) => {
 Router.post('/users', userController.create);
 Router.post('/users/login', userController.login);
 
-Router.post('/users', postedImages.create);
+//test my new route
+Router.post('/posted-images', postedimages.create);//This handles incoming request from my page
 
 // Read
 Router.get('/users', userController.list);
 Router.get('/users/:id', userController.show);
 Router.get('/me', userController.showMe);
-// Router.get('/api/logged-in-secret',(req,res) => {
-//     res.send('hello')
-//     console.log("g")
-// })
-
-
 // checkAuthentication middleware is applied to only to this route (and /logged-in-secret)
 Router.get('/logged-in-secret', checkAuthentication, (req, res) => {
   res.send({ msg: 'The secret is: there is no secret.' });

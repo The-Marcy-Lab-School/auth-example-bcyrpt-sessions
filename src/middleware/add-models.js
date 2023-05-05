@@ -1,5 +1,5 @@
 const User = require('../db/models/user');
-const PostedImages = require('../db/models/posted-images');
+const PostedImages = require('../db/models/posted-images');//imports the posted image class
 
 
 const addModels = (req, res, next) => {

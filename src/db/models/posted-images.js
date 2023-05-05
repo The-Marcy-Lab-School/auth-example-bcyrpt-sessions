@@ -151,30 +151,29 @@
 // res.send('fd')
 // });
 
-
+require('dotenv').config();
 const knex = require('../knex');
 const authUtils = require('../../utils/auth-utils');
 
 class PostedImages {
-  #passwordHash = null;
+ // #passwordHash = null;
 
   // This constructor is used ONLY by the model
   // to provide the controller with instances that
-  // have access to the instance methods isValidPassword
   // and update.
   constructor({url,id}) {
     this.url = url;
     this.id = id;
   }
 
-  static async create(url,id) {
+  static async create(url,id) {//takes in the user_id and image url then places it into the table
     try {
-      // const passwordHash = await authUtils.hashPassword(password);
 
-      const query = `INSERT INTO posted_images (img_URL,user_id)
-        VALUES (?) RETURNING *`;
+      const query = `INSERT INTO posted_images(img_url,user_id)
+        VALUES (?, ?) RETURNING *`;
       const { rows: [img] } = await knex.raw(query, [url,id]);
-      return new PostedImages(img);
+      console.log(img)//I place this here so you can console.log to see what its returning
+      return img;
     } catch (err) {
       console.error(err);
       return null;
@@ -182,9 +181,13 @@ class PostedImages {
   }
 
 
-  isValidPassword = async (password) => (
-    authUtils.isValidPassword(password, this.#passwordHash)
-  );
+
 }
 
-module.exports = PostedImages;
+//YOU CAN RUN THIS AND PASS THINGS INTO IT TEST WHATS GONNA BE DISPLAYED IN THE TERMINAL AND IN YOUR TABLEPLUS
+// const test = async () => {
+//   const postObj = await PostedImages.create('dog.png',1)
+//   console.log(postObj)
+// }
+// test()
+module.exports = PostedImages;//goes to the controller
