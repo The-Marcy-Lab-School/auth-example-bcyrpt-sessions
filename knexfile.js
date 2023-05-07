@@ -8,8 +8,8 @@ module.exports = {
       host: process.env.PG_HOST || '127.0.0.1',
       port: process.env.PG_PORT || 5432,
       user: process.env.PG_USER || 'postgres',
-      password: process.env.PG_PASS || 'postgres',
-      database: process.env.PG_DB || 'auth_example',
+      password: process.env.PG_PASS || '1998', //changes password 
+      database: process.env.PG_DB || 'notpinterest', //changed name from 'notpinterest to not-pinterest
     },
     migrations: {
       directory: path.join(__dirname, 'src', 'db', 'migrations'),
@@ -25,8 +25,8 @@ module.exports = {
       host: process.env.PG_HOST || '127.0.0.1',
       port: process.env.PG_PORT || 5432,
       user: process.env.PG_USER || 'postgres',
-      password: process.env.PG_PASS || 'postgres',
-      database: process.env.database || 'postgres',
+      password: process.env.PG_PASS || '1998',//change password
+      database: process.env.database || 'notpinterest', //changed name from 'notpinterest to not-pinterest
     },
   },
 };
