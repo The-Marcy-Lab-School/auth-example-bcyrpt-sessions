@@ -88,4 +88,10 @@ class User {
   );
 }
 
+// const test = async () => {
+//   const postObj = await User.create('dog.png','str')
+//   console.log(postObj)
+// }
+// test()
+
 module.exports = User;
