@@ -78,8 +78,9 @@ const setNav = (hasLoggedInUser) => {
     <li><a href="./posted-images.html">Search Images</a></li>
     <li><a href="./shares.html">My Shares</a></li>
     <li><a href="./user.html">Profile</a></li>
+    <li><a href="./likes.html">Likes</a></li> 
   </ul>`;
-
+                        //add likes
   const navHtml = hasLoggedInUser ? loggedInNavHtml : loggedOutNavHtml;
   document.querySelector('nav').innerHTML = navHtml;
 };
