@@ -1,5 +1,6 @@
-//const list = require('./list');
+const list = require('./list');
 const create = require('./create');//takes that create file and exports it 
+const destroy = require('./destroy');
 // const show = require('./show');
 // const update = require('./update');
 
@@ -8,8 +9,9 @@ const create = require('./create');//takes that create file and exports it
 // const showMe = require('./show-me');
 
 module.exports = {
-  //list,
+  list,
   create,
+  destroy,
   // show,
   // update,
 

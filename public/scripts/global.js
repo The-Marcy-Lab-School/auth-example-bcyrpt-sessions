@@ -195,16 +195,22 @@ const logOutHandler = async () => {
 const setNav = (hasLoggedInUser) => {
   const loggedOutNavHtml = `
   <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="./posted-images.html">Post</a></li>
+    <li><a class ="signUpLink" href="/">Home</a></li>
     <li><a href="./create.html">Sign Up</a></li>
     <li><a href="./login.html">Login</a></li>
   </ul>`;
+
+  // <li><a href="./posted-images.html">Post</a></li>
+  // <li><a href="./notSignIn.html">Sear</a></li>
+  //   <li><a href="./h.html"></a></li>
+  // <li><a href="./create.html">Sign Up</a></li>
+  //   <li><a href="./login.html">Login</a></li>
 
   const loggedInNavHtml = `
   <ul>
     <li><a href="/">Home</a></li>
     <li><a href="./posted-images.html">Post</a></li>
+    <li><a href="./h.html">h</a></li>
     <li><a href="./user.html">Profile</a></li>
   </ul>`;
 
