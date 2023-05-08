@@ -5,15 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/signup.css">
+  <link rel="stylesheet" href="./styles/loginHeader.css">
   <script type="module" src="./scripts/create.js"></script>
   <title>Sign Up</title>
 </head>
 <body>
-  <nav id="main-nav"></nav>
+  <nav id="main-nav" style="display: flex; list-style: none"></nav>
+   <!-- <a class="signUpLink" href="HomeLogOut.html">Home</a> -->
+   
   <main>
 
     <div class="container">
-      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest_logo.png" alt="Pinterest logo">
       <h1>Sign Up Today!</h1>
       <form id ="create-form" aria-describedby="log-in">
         <label for="email">ENTER USERNAME:</label>
@@ -24,6 +26,7 @@
   
         <button type="submit">Create User</button>
       </form>
+      <p>Already A member? <a href="./login.html">Log in</a></p>
       <!-- <p>Don't have an account? <a href="#">Sign up</a></p> -->
     </div>
 

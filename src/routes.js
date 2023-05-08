@@ -32,8 +32,24 @@ Router.get('/users', userController.list);
 Router.get('/users/:id', userController.show);
 Router.get('/me', userController.showMe);
 // checkAuthentication middleware is applied to only to this route (and /logged-in-secret)
+//Didnt neeed to do this but I wanted to test an idea 
 Router.get('/logged-in-secret', checkAuthentication, (req, res) => {
-  res.send({ msg: 'The secret is: there is no secret.' });
+ // res.send({ msg: 'The secret is: there is no secret.' });
+ const accessKey = 'i7Jn4SkydZNS5zzkFxSdoi1r7VovkEBA5TuOYj_gN2M'
+ const query = 'landscape'; // example query
+  //const page = 2; // example page
+  const perPage = 3; // example per page
+
+  fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=${perPage}&client_id=${accessKey}`)
+    .then(response => response.json())
+    .then(data => {
+      const images = data.results.slice().map(result => result.urls.regular);
+      res.send({ msg: 'Here are the images:', images });
+    })
+    .catch(error => {
+      console.error('Error fetching images from Unsplash API:', error);
+      res.status(500).send({ error: 'Error fetching images from Unsplash API' });
+    });
 });
 
 // Router.get('/logged-in-secret', checkAuthentication, (req, res) => {

@@ -5,7 +5,7 @@
 exports.up = (knex) => knex.schema.createTable('saved_images', (table) => {
     table.increments('id');
     table.string('img_url').notNullable();
-    table.integer('user_id').notNullable();
+    table.integer('user_id').notNullable().unique();
     table.foreign('user_id').references('id').inTable('users');
   });
   
